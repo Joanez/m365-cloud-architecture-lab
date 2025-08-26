@@ -1,1 +1,10 @@
+Refresh Feature
+Create configuration profile: Congiguration profiles - Create - New Policy 
+Select Windows10 or later and Settings catalog 
+Add name and description click on next 
+In the settings picker type "Config Refresh" and press enter from the settigns select Config refresh and Refresh Cadence 
+Enable config refresh and for cadence type the value in minutes for example 30 then click on next 
+Add scope tags, in assigment select the group that you want to apply the configuration profile then click on create 
 
+To validate the settings once intune show deployed success you can go to 
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Enrollments\” Intune Policy Provider GUID” \ConfigRefresh and it should have the values that you set in the congfiguration profile
