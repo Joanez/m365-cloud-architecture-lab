@@ -1,0 +1,3 @@
+This policy is intend to restrict which users can log into computers, this policy could be use for Generic accounts 
+Create new policy and select settings catalog, click on create and add the name and description 
+From the configuration picker type Allow local log on, then add the groups or users that have rights to low on the device, if hybric enviroment make sure to add the domain\ group name example: armandev\Test_Accounts 
