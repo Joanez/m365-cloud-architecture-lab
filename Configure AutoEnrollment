@@ -1,0 +1,33 @@
+Configure automatic enrollment
+The first task is to configure automatic enrollment. Automatic enrollment will ensure the device is automatically enrolled into Microsoft Intune -- after joining Microsoft Entra ID.
+
+Open the Microsoft Intune admin center portal and navigate to Devices > Windows > Windows enrollment > General > Automatic enrollment.
+On the Configure page, configure the MDM user scope by choosing one of the following options (Figure 1).
+None. MDM automatic enrollment is disabled.
+Some. MDM automatic enrollment is enabled only for the selected group.
+All. MDM automatic enrollment is enabled for all users.
+3. Leave MDM terms of use URL, MDM discovery URL, and MDM compliance URL to their default configuration and click Save to store the changes.
+
+
+Register the devices with Windows Autopilot
+The second task is to register devices with Windows Autopilot -- this is only necessary if the devices are not already registered by the vendor. This will use information accessible via a CSV file.
+
+Open the Microsoft Intune admin center portal and navigate to Devices > Windows > Windows enrollment > Windows Autopilot Deployment Program > Devices.
+On the Windows Autopilot devices page, as shown in Figure 2, click Import. Select the CSV file and click Import again.
+
+The Windows Autopilot devices overview also provides insights with important details that IT admins can use to filter and group devices. The most important of these is the Group tag, which IT can easily adjust. To create an Entra device group based on that tag use the following example code:
+
+device.devicePhysicalIds -any (_ -eq "[OrderID]:Example"))
+Create a Windows Autopilot deployment profile
+The third task is to create a Windows Autopilot deployment profile, configure the deployment mode of the devices and customize the user's OOBE. The following steps will walk through the creation of that profile:
+
+Open the Microsoft Intune admin center portal and navigate to Devices > Windows > Windows enrollment > Windows Autopilot Deployment Program > Deployment Profiles.
+On the Windows Autopilot deployment profiles page, click Create profile and then select Windows PC.
+On the Basics page, specify a name for the profile and click Next.
+On the Out-of-box experience (OOBE) page, configure at least the first two settings and click Next.
+Deployment mode. Select User-Driven for a standard Windows Autopilot deployment, in which users provide their credentials during the enrollment and the device is assigned to that user.
+Join to Microsoft Entra ID as. Select Microsoft Entra joined for the Microsoft recommended location to join new devices.
+For the remaining settings, choose what's applicable based on internal policies. Determine which pages should be shown, choose the account type, configure the language and determine the name standard.
+On the Scope tags page, click Next.
+On the Assignments page, configure the appropriate assignment of the profile based on an Entra device group. Consider using a group based on a Group tag.
+On the Review + create page, review the configuration and click Create.
