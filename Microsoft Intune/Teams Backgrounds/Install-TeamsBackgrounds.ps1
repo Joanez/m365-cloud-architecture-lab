@@ -1,10 +1,10 @@
 # Install-TeamsBackgrounds.ps1
-# Deploys corporate Teams backgrounds for New Teams.
-# The Teams Uploads folder is fully managed by this application.
-# Every installation or update clears the folder before installing
+# Deploys custom Microsoft Teams backgrounds for New Teams.
+# The Teams Uploads folder is fully managed by this script.
+# Each installation or update clears the folder before installing
 # the current background images and generated thumbnails.
 
-$AppName = "SoneparTeamsBackgrounds"
+$AppName = "TeamsBackgrounds"
 $AppVersion = "1.4.0"
 
 $SourceFolder = Join-Path `
@@ -17,7 +17,7 @@ $TeamsBackgroundPath = Join-Path `
 
 $MarkerFolder = Join-Path `
     -Path $env:LOCALAPPDATA `
-    -ChildPath "Sonepar\TeamsBackgrounds"
+    -ChildPath "TeamsBackgrounds"
 
 $MarkerFile = Join-Path `
     -Path $MarkerFolder `
